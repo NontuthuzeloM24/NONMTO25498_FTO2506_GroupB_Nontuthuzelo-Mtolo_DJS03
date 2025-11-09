@@ -1,10 +1,20 @@
 import React from "react";
-import "./Loading.css";
+import PodcastCard from "./PodcastCard";
+import "./PodcastGrid.css";
 
 /**
- * @component Loading
- * @description Displays a loading indicator while data is being fetched.
+ * @component PodcastGrid
+ * @description Displays a grid of podcast cards.
+ * @param {Array} podcasts - Array of podcast objects
  */
-const Loading = () => <p className="loading">Loading podcasts...</p>;
+const PodcastGrid = ({ podcasts }) => {
+  return (
+    <div className="podcast-grid">
+      {podcasts.map((podcast) => (
+        <PodcastCard key={podcast.id} podcast={podcast} />
+      ))}
+    </div>
+  );
+};
 
-export default Loading;
+export default PodcastGrid;
